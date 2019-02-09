@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt_BR">
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <meta charset="UTF-8">
+  <title>Crud em Express + Node</title>
+  <style>
+    input {
+      width: 20%;
+      height: 30px;
+      color: darkred;
+      background-color: black;
+      border-color: brown;
+      border-radius: 10px;
+      text-align: center;
+    }
+
+    button {
+      width: 10%;
+      height: 30px;
+      color: darkred;
+      background-color: black;
+      border-color: brown;
+      border-radius: 10px;
+      text-align: center;
+    }
+  </style>
+</head>
+
+<body>
+
+  <h2>Editar Registro</h2>
+  <% data.forEach(function(details) { %> <!--Pega todos os dados em array que está na base de dados-->
+
+     <!--Pega o id pra mostrar os dados-->
+  <form action="/edit/<%= details._id %>" method="POST">
+    <input type="text" value="<%= details.name %>" name="name"> 
+    <input type="text" value="<%= details.surname %>" name="surname">
+    <br />
+    <button><a href="/exibe">Todos</a></button>
+    <button type="submit">Editar</button>
+  </form>
+  <% }) %>
+
+</body>
+
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt_BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <title>Crud em Express + Node</title>
+  <style>
+    input {
+      width: 30%;
+      height: 30px;
+      color: darkred;
+      background-color: black;
+      border-color: brown;
+      border-radius: 10px;
+      text-align: center;
+    }
+
+    button {
+      width: 18%;
+      height: 30px;
+      color: darkred;
+      background-color: black;
+      border-color: brown;
+      border-radius: 10px;
+      text-align: center;
+    }
+
+    h3 {
+      color: darkred;
+    }
+
+    a {
+      text-decoration: none;
+      color: aliceblue;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="jumbotron">
+      <h2>Registrar Padawan</h2>
+
+      <form action="/" method="POST">
+        <input type="text" placeholder="Informe seu nome, jovem" name="name">
+        <input type="text" placeholder="Infome seu sobrenome, jovem" name="surname">
+        <br>
+        <br>
+        <button type="submit">Enviar Dados</button>
+        <button><a href="/exibe">Exibir todos os padawans</a></button>
+      </form>
+    </div>
+  </div>
+  <div class="container">
+    <div class="jumbotron">
+      <h3>Escolha o lado bom da força jovem padawan, escolha JavaScript :)</h3>
+    </div>
+  </div>
+</body>
+
+</html>
