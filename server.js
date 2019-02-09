@@ -19,7 +19,6 @@ MongoClient.connect(url, (err, client) => {
   })
 })
 
-//views
 app.set('view engine', 'ejs')
 
 
@@ -34,7 +33,7 @@ app.route('/') //raiz, ex: /localhost:3000
     db.collection('data').save(req.body, (err, result) => {
       if (err) return console.log(err)
 
-      console.log('Padawan Salvo no Banco de Dados')
+    //  console.log('Padawan Salvo no Banco de Dados')
       res.redirect('/exibe')
     })
   })
@@ -72,7 +71,7 @@ app.route('/edit/:id') //pega o id
     }, (err, result) => {
       if (err) return res.send(err)
       res.redirect('/exibe')
-      console.log('Atualizado no Banco de Dados')
+  //    console.log(' Padawan Atualizado no Banco de Dados')
     })
   })
 
@@ -83,7 +82,7 @@ app.route('/delete/:id') //pega o id
     //deletando
     db.collection('data').deleteOne({ _id: ObjectId(id) }, (err, result) => { //vai na collection, procura o id e apaga
       if (err) return res.send(500, err)
-      console.log('Deletado do Banco de Dados!')
+      // console.log('Padawan Deletado do Banco de Dados!') //mostra no terminal
       res.redirect('/exibe') //volta pra tabela onde se encontra os dados
     })
   })
