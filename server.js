@@ -15,7 +15,7 @@ MongoClient.connect(url, (err, client) => {
   db = client.db('crud-express')
 
   app.listen(3003, () => {
-    console.log('Server running on port 3003')
+   // console.log('Server running on port 3003')
   })
 })
 
