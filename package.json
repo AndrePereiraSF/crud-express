@@ -1,8 +1,8 @@
 {
-    "name": "CrudNode",
+    "name": "CrudemExpress",
     "version": "1.0.0",
     "main": "server.js",
-    "description": "crud básico em node",
+    "description": "Crud",
     "private": true,
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1",
