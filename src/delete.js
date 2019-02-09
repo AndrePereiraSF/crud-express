@@ -1,6 +1,5 @@
 const express = require('express')  //requerindo express
 const app = express() //app recebendo os express
-require('url');
 require('../server')
 
 
