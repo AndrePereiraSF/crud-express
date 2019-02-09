@@ -1,8 +1,7 @@
 const express = require('express')  //requerindo express
 const app = express() //app recebendo os express
 const bodyParser = require('body-parser') //requerindo o body parser
-require('./src/delete');
-require('./src/enviar');
+
 
 
 const ObjectId = require('mongodb').ObjectID //metodo do Mongo, suporta hexadecimal (aquele valor meio aleatorio dos IDs)
@@ -25,29 +24,29 @@ app.set('view engine', 'ejs')
 
 
 app.route('/') //raiz, ex: /localhost:3000
-.get(function (req, res) {
-  db.collection('data').find() 
-  res.render('index.ejs') //indicando o que deve aparecer nessa raiz, ou seja index.js
-})
-
-//ENVIANDO USERs
-.post((req, res) => {
-  db.collection('data').save(req.body, (err, result) => {
-    if (err) return console.log(err)
-
-  //  console.log('Padawan Salvo no Banco de Dados')
-    res.redirect('/exibe')
+  .get(function (req, res) {
+    db.collection('data').find() //ei mongo, encontra ai os dados.
+    res.render('index.ejs') //indicando o que deve aparecer nessa raiz, ou seja index.js
   })
-})
+
+  //ENVIANDO USERs
+  .post((req, res) => {
+    db.collection('data').save(req.body, (err, result) => {
+      if (err) return console.log(err)
+
+      //  console.log('Padawan Salvo no Banco de Dados')
+      res.redirect('/exibe')
+    })
+  })
 
 
 app.route('/exibe')
-.get((req, res) => {
-  db.collection('data').find().toArray((err, results) => {
-    if (err) return console.log(err)
-    res.render('exibe.ejs', { data: results })
+  .get((req, res) => {
+    db.collection('data').find().toArray((err, results) => {
+      if (err) return console.log(err)
+      res.render('exibe.ejs', { data: results })
+    })
   })
-})
 
 //EDITANDO users
 app.route('/edit/:id') //pega o id
@@ -72,9 +71,11 @@ app.route('/edit/:id') //pega o id
     }, (err, result) => {
       if (err) return res.send(err)
       res.redirect('/exibe')
-  //    console.log(' Padawan Atualizado no Banco de Dados')
+      //    console.log(' Padawan Atualizado no Banco de Dados')
     })
   })
+
+
 
 //DELETANDO USERs
 app.route('/delete/:id') //pega o id
