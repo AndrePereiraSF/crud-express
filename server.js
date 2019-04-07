@@ -10,7 +10,7 @@ const url = "mongodb://localhost/crud-express"; //variavel url recebe onde está
 
 app.use(bodyParser.urlencoded({ extended: true }))
 
-MongoClient.connect(url, (err, client) => {
+MongoClient.connect(url, { useNewUrlParser: true }, (err, client) => {
   if (err) return console.log(err)
   db = client.db('crud-express')
 
@@ -24,7 +24,7 @@ app.set('view engine', 'ejs')
 
 
 app.route('/') //raiz, ex: /localhost:3000
-  .get(function (req, res) {
+  .get((req, res) => {
     db.collection('data').find() //ei mongo, encontra ai os dados.
     res.render('index.ejs') //indicando o que deve aparecer nessa raiz, ou seja index.js
   })
